@@ -1,7 +1,7 @@
 import React from 'react';
 import "./style.css"
 
-function searchBar({handleSearchChange}) {
+function SearchBar({handleSearchChange}) {
     return (
         <div>
             <form className="form-inline">
@@ -21,4 +21,4 @@ function searchBar({handleSearchChange}) {
     )
 }
 
-export default searchBar
+export default SearchBar
