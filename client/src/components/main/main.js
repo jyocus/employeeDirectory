@@ -15,6 +15,7 @@ function Main() {
     const [filteredUsers,setFilteredUsers] = useState([])
 
     useEffect(() => {
+        console.log("use effect running");
         API.getUsers()
         .then (response => {
             console.log(response);
@@ -26,12 +27,14 @@ function Main() {
 
     const handleSortClick = heading => {
         const compare = (a,b) => {
-            console.log(b[heading]);
+            // console.log(b[heading]);
             return b[heading].first.localeCompare(a[heading].first)
         }
         const sortedUsers = filteredUsers.sort(compare)
+        let newUsers = [...sortedUsers]
         console.log(sortedUsers);
-        setFilteredUsers(sortedUsers)
+        setFilteredUsers(newUsers)
+        
     }
     return (
     
