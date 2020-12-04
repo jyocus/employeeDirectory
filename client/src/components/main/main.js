@@ -25,6 +25,8 @@ function Main() {
         
     }, [])
 
+
+    //Handles the Sorting
     const handleSortClick = heading => {
         const compare = (a,b) => {
             // console.log(b[heading]);
@@ -36,11 +38,23 @@ function Main() {
         setFilteredUsers(newUsers)
         
     }
+    //Handles the Filte For last name
+    const handleSearchChange = event => {
+
+        let filteredUsers = users.filter(user => {
+            return user.name.last.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1;
+        })
+
+       
+        setFilteredUsers([...filteredUsers])
+    }
+
+
     return (
     
         <div>
             <Nav />
-            <SearchBar />
+            <SearchBar handleSearchChange={handleSearchChange}/>
             <Label handleSortClick={handleSortClick} /> 
             <div className="container">
                 {filteredUsers.map(user => {
